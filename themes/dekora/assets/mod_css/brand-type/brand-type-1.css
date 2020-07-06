@@ -1,0 +1,15 @@
+/*-----------------brand-type-1----------*/
+
+.brand-type-1 .item .item-inner {
+    margin-bottom: 30px;
+}
+
+.brand-type-1 .slider-carousel .item .item-inner:last-child {
+    margin-bottom: 0;
+}
+
+.brand-type-1 .item-inner a{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}

@@ -1,0 +1,51 @@
+.instagram-type-1 .item-inner:not(:last-child) {
+	margin-bottom: 6px;
+}
+
+.instagram-type-1 .item-inner a{
+	position: relative;	
+	display: block;
+}
+
+.instagram-type-1 .item-inner a:before{
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	background: rgba(0,0,0,0.4);
+	opacity: 0;
+	transition: all 0.1s ease-in-out 0s;
+	-ms-transition: all 0.1s ease-in-out 0s;
+	-webkit-transition: all 0.1s ease-in-out 0s;
+}
+
+.instagram-type-1 .item-inner a:hover:before{
+	opacity: 1;	
+}
+
+.instagram-type-1 .item-inner a span.text-center{
+	font-size: 12px;
+    color: #fff;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+	z-index: 1;
+	margin-top: -7px;
+	opacity: 0;
+	transition: all 0.1s ease-in-out 0s;
+	-ms-transition: all 0.1s ease-in-out 0s;
+	-webkit-transition: all 0.1s ease-in-out 0s;
+}
+
+.instagram-type-1 .item-inner a:hover span.text-center{
+	opacity: 1;	
+}
+
+.instagram-type-1 .item-inner a span i{
+	margin-right: 5px;	
+}
