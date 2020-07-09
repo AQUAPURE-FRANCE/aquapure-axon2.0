@@ -23,7 +23,7 @@ init.php
 js/
 localization/
 mails/
-modules/*
+
 override/
 package-lock.json
 pdf/
@@ -38,9 +38,12 @@ var/
 vendor/
 webservice/
 
-!themes/dekora/
-!modules/nrtpagebuilder/
-!modules/hsmultiaccessoriespro/
+!themes/dekora**
+
+modules/*
+!modules/hsmultiaccessoriespro**
+!modules/nrtpagebuilder**
+
 !package-lock.json
 !composer.lock
 !.gitignore
