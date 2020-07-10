@@ -203,6 +203,7 @@
 		},
 	};
 	NrtHomepageAjax.init();
+
 	document.addEventListener('click', Event => {
 		if (Event.target.hasAttribute('href') && Event.target.href.match(/#content-/) &&
 			Event.target.classList.contains('active')) {
@@ -218,5 +219,6 @@
 			ids = [sectionProduct.id, sectionProduct.querySelector(NrtHomepageAjax.DOM.selectors.hsmaMultiAccessoriesTabId).id];
 			ids.map(id => NrtHomepageAjax.addUnderscore(document.getElementById(id), 'id'));
 		});
+		return false;
 	});
 }());
