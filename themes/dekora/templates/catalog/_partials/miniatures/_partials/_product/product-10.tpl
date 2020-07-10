@@ -26,7 +26,7 @@
 {block name='wrapper'}
 	<div id="wrapper">
 		{hook h="displayWrapperTop"}
-		<div class="container container-parent">
+		<div id="product" class="container container-parent">
 			{hook h="displayContentWrapperTop"}
 			<section id="main" class="product-layout-1" itemscope itemtype="https://schema.org/Product">
 				<meta itemprop="url" content="{$product.url}">
@@ -142,8 +142,6 @@
 					<div id="right-column" class="col-xs-12 col-lg-3">
 
 						{hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product}
-
-						{HsMultiAccessoriesPro::renderAccessoriesBlock([$product.id], true)}
 
 						<div id="right-content">
 							{block name="right_content"}
