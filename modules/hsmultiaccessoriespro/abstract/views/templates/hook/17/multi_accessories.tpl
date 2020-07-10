@@ -6,9 +6,9 @@
 * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 <div id="multiAccessoriesTab">
-{if !empty($accessory_groups) && !empty($accessories_groups)}
-    <script type="text/javascript">
-        changeMainPrice = {$change_main_price|escape:'htmlall':'UTF-8'};
+    {if !empty($accessory_groups) && !empty($accessories_groups)}
+    <script id="current-script" type="text/javascript" data-controller="{$smarty.get.controller}">
+        changeMainPrice = {$change_main_price|escape:'htmlall':'UTF-8'},
         accessoriesTablePrice = {$accessories_table_price nofilter},
         randomMainProductId = '{$random_main_product_id|escape:'htmlall':'UTF-8'}',
         subTotal = '{$sub_total|escape:'htmlall':'UTF-8'}',
