@@ -1,0 +1,204 @@
+.mdl-textfield {
+    position: relative;
+    font-size: 1.2rem;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 0
+}
+
+.mdl-textfield .mdl-button {
+    position: absolute;
+    bottom: 10px
+}
+
+.mdl-textfield--align-right {
+    text-align: right
+}
+
+.mdl-textfield--full-width {
+    width: 100%
+}
+
+.mdl-textfield--expandable {
+    min-width: 32px;
+    width: auto;
+    min-height: 32px
+}
+
+.mdl-textfield--expandable .mdl-button--icon {
+    top: 16px
+}
+
+.mdl-textfield__input {
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+	display: block;
+	font-size: 1.2rem;
+	margin: 0;
+	width: 100%;
+	background: 0 0;
+	text-align: left;
+	color: #9c9c9c;
+	height: 40px;
+	box-shadow: none;
+}
+
+.mdl-textfield__input[type="number"] {
+    -moz-appearance: textfield
+}
+
+.mdl-textfield__input[type="number"]::-webkit-inner-spin-button,
+.mdl-textfield__input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.mdl-textfield.is-focused .mdl-textfield__input {
+    outline: none
+}
+
+fieldset[disabled] .mdl-textfield .mdl-textfield__input,
+.mdl-textfield.is-disabled .mdl-textfield__input {
+    background-color: transparent;
+    border-bottom: 1px dotted rgba(0, 0, 0, .12);
+    color: rgba(0, 0, 0, .26)
+}
+
+.mdl-textfield textarea.mdl-textfield__input {
+    display: block
+}
+
+.mdl-textfield__label {
+    bottom: 0;
+    color: #9c9c9c;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 24px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+	margin: 0;
+	line-height: 1;
+}
+
+.mdl-textfield__label.required::after {
+    color: red;
+    content: "*";
+    margin-left: 3px;
+}
+
+.mdl-textfield.is-dirty .mdl-textfield__label,
+.mdl-textfield.has-placeholder .mdl-textfield__label {
+    visibility: hidden
+}
+
+.mdl-textfield--floating-label .mdl-textfield__label {
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1)
+}
+
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    transition: none
+}
+
+fieldset[disabled] .mdl-textfield .mdl-textfield__label,
+.mdl-textfield.is-disabled.is-disabled .mdl-textfield__label {
+    color: rgba(0, 0, 0, .26)
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    color: rgb(63, 81, 181);
+    font-size: 1.2rem;
+    top: 4px;
+    visibility: visible
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label,
+.mdl-textfield--floating-label.has-placeholder .mdl-textfield__expandable-holder .mdl-textfield__label {
+    top: -16px
+}
+
+.mdl-textfield__label:before {
+    background-color: rgb(63, 81, 181);
+    bottom: 10px;
+    content: '';
+    height: 2px;
+    left: 45%;
+    position: absolute;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    visibility: hidden;
+    width: 10px
+}
+
+.mdl-textfield.is-focused .mdl-textfield__label:before {
+    left: 0;
+    visibility: visible;
+    width: 100%
+}
+
+.mdl-textfield__error {
+    color: #d50000;
+    position: absolute;
+    font-size: 1.2rem;
+    margin-top: 3px;
+    visibility: hidden;
+    display: block
+}
+
+.mdl-textfield__expandable-holder {
+    display: inline-block;
+    position: relative;
+    margin-left: 32px;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    max-width: .1px
+}
+
+.mdl-textfield.is-focused .mdl-textfield__expandable-holder,
+.mdl-textfield.is-dirty .mdl-textfield__expandable-holder {
+    max-width: 600px
+}
+
+.mdl-textfield__expandable-holder .mdl-textfield__label:before {
+    bottom: 0
+}
+
+.mdl-ripple {
+    background: #000;
+    border-radius: 50%;
+    height: 50px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    overflow: hidden
+}
+
+.mdl-ripple.is-animating {
+    transition: transform .3s cubic-bezier(0, 0, .2, 1), width .3s cubic-bezier(0, 0, .2, 1), height .3s cubic-bezier(0, 0, .2, 1), opacity .6s cubic-bezier(0, 0, .2, 1);
+    transition: transform .3s cubic-bezier(0, 0, .2, 1), width .3s cubic-bezier(0, 0, .2, 1), height .3s cubic-bezier(0, 0, .2, 1), opacity .6s cubic-bezier(0, 0, .2, 1), -webkit-transform .3s cubic-bezier(0, 0, .2, 1)
+}
+
+.mdl-ripple.is-visible {
+    opacity: .3
+}
+
+.mdl-js-ripple-effect{
+	overflow: hidden;
+	position: relative;
+}

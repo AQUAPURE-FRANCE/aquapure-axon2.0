@@ -1,0 +1,114 @@
+.product-layout-8 .product-cover {
+    margin-bottom: 20px;
+}
+
+.product-layout-8 .js-scroll-large-images .item-image {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.product-layout-8 .images-container {
+    position: relative;
+    margin-bottom: 20px;
+	padding-left: 90px;
+}
+
+.product-layout-8 .box_thumb {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    width: 80px;
+    top: 0;
+    z-index: 1;
+}
+
+@media (max-width: 575px) {
+	.product-layout-8 .images-container {
+		padding-left: 70px;
+	}
+	.product-layout-8 .box_thumb {
+		position: absolute;
+		left: 0;
+		margin: 0;
+		width: 60px;
+		top: 0;
+		z-index: 1;
+	}
+}
+
+.product-layout-8 .box_thumb .item-image{
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.product-layout-8 .col-product-image, .product-layout-8 .col-product-info, .product-layout-8 .col-product-sidebar {
+	margin-bottom: 0 !important;
+}
+
+.product-layout-8 .block-reassurance ul li .block-reassurance-item {
+	border-bottom: none;
+	padding: 10px 0;
+}
+
+.product-layout-8 .block-reassurance {
+    margin-bottom: 35px;
+	margin-top: -15px;
+}
+
+.product-layout-8 .block-reassurance ul {
+    margin-bottom: 35px;
+}
+
+.product-layout-8 .product-quantity .qty{
+	margin-bottom: 15px;
+}
+
+.product-layout-8 .product-quantity .add {
+    clear: both;
+}
+
+.product-layout-8 .product-prices div.current-price > span[itemprop] {
+    font-size: 3rem;
+}
+
+.product-layout-8 .product-prices div.current-price > span.product-discount .regular-price {
+    font-size: 2.4rem;
+}
+
+.product-layout-8 .product-variants > .product-variants-item{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9e7e7;
+}
+
+.product-layout-8 .product-pack .pack-product-container .pack-product-name a {
+    font-size: 1.2rem;
+}
+
+.product-layout-8 .product-pack .thumb-mask > .mask {
+	width: 50px;
+	height: 50px;
+}
+
+.product-layout-8 .js-product-images-modal {
+    margin-bottom: 25px;
+}
+
+.product-layout-8 .product-tags {
+    margin-bottom: 22px;
+}
+
+.product-layout-8 .social-sharing {
+    margin-bottom: 23px;
+}
+
+.product-layout-8 .radio-label {
+    background: #f4f4f4;
+}
+
+.product-layout-8 .product-prices {
+    margin-top: 4px;
+}

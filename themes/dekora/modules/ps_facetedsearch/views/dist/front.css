@@ -1,0 +1,37 @@
+.faceted-overlay {
+	display: none;
+}
+
+#search_filters .facet .faceted-slider label {
+   display: block;
+	margin: 0;
+}
+
+#search_filters .facet .ui-widget-content {
+    border: 1px solid #aaa;
+    background: #fff;
+    color: #222;
+	border-radius: 4px;
+	height: 7px;
+	position: relative;
+}
+
+#search_filters .ui-slider .ui-slider-handle {
+    top: -8px;
+    width: 8px;
+    background: #fff;
+	border: 1px solid #555;
+    height: 21px;
+    position: absolute;
+    margin-left: -1px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#search_filters .facet .ui-widget-header {
+    background: #555;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 4px;
+}

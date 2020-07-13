@@ -1,0 +1,34 @@
+.wrapper-social {
+    position: relative;
+    padding: 0 30px;
+	padding-left:35px;
+}
+.wrapper-social .js-remove{
+	cursor: pointer;
+    color: #C45C67;
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    font-size: 18px;
+}
+.sort_tab_social {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    left: 5px;
+    cursor: move;
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    border: 1px solid #C7D6DB;
+    line-height: 27px;
+    background: #F5F8F9;
+    border-radius: 3px;
+}
+#add-custom-link{
+	width:100%;	
+}
+#selected-social .ui-state-highlight{
+    height: 31px;
+    margin-bottom: 15px;
+}

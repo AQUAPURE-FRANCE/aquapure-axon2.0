@@ -1,0 +1,52 @@
+.category-type-2 .item .item-inner {
+    margin-bottom: 30px;
+	background: #fff;
+}
+
+.category-type-2 .slider-carousel .item .item-inner:last-child {
+    margin-bottom: 0;
+}
+
+.category-type-2 .content-category {
+	text-align: center;
+	padding: 50px;
+	padding-top: 22px;
+}
+
+.category-type-2 .category-name::before {
+	content: '~';	
+}
+
+.category-type-2 .category-name::after {
+	content: '~';	
+}
+
+.category-type-2 .category-name {
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-bottom: 18px;
+	display: block;
+}
+
+.category-type-2 .description {
+	line-height: 2.4rem;
+	font-size: 1.4rem;
+	color: #666666;
+	margin-bottom: 43px;
+}
+
+.category-type-2 .description p:last-child{
+	margin: 0;
+}
+
+.category-type-2 .btn {
+	display: block;
+	border-radius: 0;
+	font-weight: 500;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	line-height: 4.3rem;
+}

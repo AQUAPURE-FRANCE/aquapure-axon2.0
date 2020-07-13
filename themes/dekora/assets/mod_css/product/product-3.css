@@ -1,0 +1,102 @@
+.product-layout-3 .product-cover {
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+	background: none;
+}
+
+.product-layout-3 .js-scroll-large-images {
+	margin-left: -10px !important;
+	margin-right: -10px !important;
+}
+
+.product-layout-3 .js-scroll-large-images > .item-image {
+    display: block;
+	margin-bottom: 20px;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+
+.product-layout-3 .js-scroll-large-images .item-image .box-item-image{
+	position: relative;
+	border: 1px solid #e9e7e7;
+	padding: 1px;
+	background: #ffffff;
+}
+
+.product-layout-3 .block-reassurance ul li .block-reassurance-item {
+	border-bottom: none;
+	padding: 10px 0;
+}
+
+.product-layout-3 .col-product-image, .product-layout-3 .col-product-info{
+    margin-bottom: 0 !important;
+}
+
+.product-layout-3 .row-product {
+    margin-bottom: 30px;
+}
+
+.product-layout-3 .block-reassurance {
+    margin-top: -15px;
+}
+
+.product-layout-3 .block-reassurance ul {
+    margin-bottom: 35px;
+}
+
+.product-layout-3 .box_thumb {
+    display: none;
+}
+
+.product-layout-3 .product-prices div.current-price > span[itemprop] {
+    font-size: 2.5rem;
+}
+
+.product-layout-3 .product-prices div.current-price > span.product-discount .regular-price {
+    font-size: 2rem;
+}
+
+.product-layout-3 .product-variants > .product-variants-item .color {
+    width: 28px;
+    height: 28px;
+}
+
+.product-layout-3 .product-variants > .product-variants-item .color::before {
+    font-size: 12px;
+    line-height: 26px;
+}
+
+.product-layout-3 .radio-label {
+    line-height: 26px;
+    background: #f4f4f4;
+    color: #21293c;
+}
+
+.product-layout-3 .product-actions .control-label {
+    line-height: 28px;
+}
+
+.product-layout-3 #add-to-cart-or-refresh .product-variants {
+	margin: 0 -2px;
+}
+
+.product-layout-3 .product-variants > .product-variants-item {
+    margin: 0;
+    font-size: 0;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9e7e7;
+}
+
+.product-layout-3 .product-variants > .product-variants-item:last-child {
+    margin-bottom: 26px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9e7e7;
+}
+
+.product-layout-3 .js-product-images-modal {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+

@@ -1,0 +1,96 @@
+.product-layout-7 .product-cover {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+	background: none;
+}
+
+.product-layout-7 .js-scroll-large-images .item-image {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.product-layout-7 .js-scroll-large-images .item-image .box-item-image{
+	position: relative;
+	border: 1px solid #e9e7e7;
+	padding: 1px;
+	background: #ffffff;
+}
+
+.product-layout-7 .col-product-image, .product-layout-7 .col-product-info, .product-layout-7 .col-product-sidebar {
+	margin-bottom: 0 !important;
+}
+
+.product-layout-7 .box_thumb {
+    display: none;
+}
+
+.product-layout-7 .block-reassurance ul li .block-reassurance-item {
+	border-bottom: none;
+	padding: 10px 0;
+}
+
+.product-layout-7 .block-reassurance {
+    margin-bottom: 35px;
+	margin-top: -15px;
+}
+
+.product-layout-7 .block-reassurance ul {
+    margin-bottom: 35px;
+}
+
+.product-layout-7 .product-quantity .qty{
+	margin-bottom: 15px;
+}
+
+.product-layout-7 .product-quantity .add {
+    clear: both;
+}
+
+.product-layout-7 .product-prices div.current-price > span[itemprop] {
+    font-size: 3rem;
+}
+
+.product-layout-7 .product-prices div.current-price > span.product-discount .regular-price {
+    font-size: 2.4rem;
+}
+
+.product-layout-7 .product-variants > .product-variants-item{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9e7e7;
+}
+
+.product-layout-7 .product-pack .pack-product-container .pack-product-name a {
+    font-size: 1.2rem;
+}
+
+.product-layout-7 .product-pack .thumb-mask > .mask {
+	width: 50px;
+	height: 50px;
+}
+
+.product-layout-7 .js-product-images-modal {
+    margin-bottom: 25px;
+}
+
+.product-layout-7 .product-tags {
+    margin-bottom: 22px;
+}
+
+.product-layout-7 .social-sharing {
+    margin-bottom: 23px;
+}
+
+.product-layout-7 .radio-label {
+    background: #f4f4f4;
+}
+
+.product-layout-7 .product-prices {
+    margin-top: 4px;
+}

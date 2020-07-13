@@ -1,0 +1,117 @@
+/*------------------product-type-5----------------------------*/
+
+.product-type-5 .container-infinite{
+	margin-bottom: -15px;
+}
+
+.product-type-5 .js-product-miniature{
+	padding-left: 104px;
+}
+
+.product-type-5 .left-product {
+    float: left;
+    margin-left: -104px;
+    width: 89px;
+    padding: 1px;
+    border: 1px solid #e9e7e7;
+}
+
+.product-type-5 .item .item-inner{
+	display: table;
+	width: 100%;
+	padding-bottom: 1px;
+}
+
+.product-type-5 .item .item-inner:not(:last-child){
+	margin-bottom: 15px;
+}
+
+.product-type-5 .product_name a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-type-5 .product_name a:not(:hover) {
+	color: #777777;
+}
+
+.product-type-5 .star {
+    font-size: 11px;
+    line-height: 11px;
+}
+
+.product-type-5.products .comments_note span.nb-comments {
+    display: none;
+}
+
+.product-type-5 .comments_note{
+	margin-bottom: 5px;
+}
+
+.product-type-5 .product-price-and-shipping{
+	font-size: 0;
+	margin: 0 -3px;
+}
+
+.product-type-5 .product-price-and-shipping span{
+	margin: 0 3px;
+	font-size: 1.4rem;
+}
+
+.product-type-5 .product-price-and-shipping span.regular-price{
+	margin: 0 3px;
+	font-size: 1.2rem;
+}
+
+
+.product-type-5 .js-product-miniature {
+    padding-left: 140px;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.product-type-5 .left-product {
+    float: left;
+    margin-left: -140px;
+    width: 120px;
+    padding: 0;
+    border: none;
+}
+
+.product-type-5 .right-product {
+    padding-left: 20px;
+	flex: 1;
+}
+
+.product-type-5 .item .item-inner:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.product-type-5 .product_name a:not(:hover) {
+    color: #262626;
+}
+
+.product-type-5 .product_name a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.product-type-5 .star {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.product-type-5 .product-price-and-shipping span {
+    font-size: 1.6rem;
+}
+
+.product-type-5 .product-price-and-shipping span.regular-price {
+    font-size: 1.4rem;
+}
+
+.product-type-5 .comments_note {
+    margin-bottom: 10px;
+}

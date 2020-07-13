@@ -1,0 +1,109 @@
+.product-layout-2 .product-cover {
+	padding: 0;
+	border: none;
+	margin-bottom: 25px;
+	background: none;
+}
+
+.product-layout-2 .box_thumb {
+	display: none;
+}
+
+.product-layout-2 .js-scroll-large-images {
+    margin-left: -4px;
+	margin-right: -4px;
+}
+
+.product-layout-2 .js-scroll-large-images .item-image {
+    padding-left: 5px;
+	padding-right: 5px;
+	position: relative;
+	width: 33.333333%;
+}
+
+.product-layout-2 .js-scroll-large-images .item-image .box-item-image{
+	position: relative;
+	border: 1px solid #e9e7e7;
+	padding: 1px;
+	background: #ffffff;
+}
+
+.product-layout-2 .product-cover .slick-arrow.slick-prev {
+    left: 0;
+}
+
+.product-layout-2 .product-cover .slick-arrow.slick-next {
+    right: 0;
+}
+
+@media (min-width: 992px) {
+	.product-layout-2 .name_detail{
+		font-size: 3.8rem;
+		line-height: 4.3rem;
+		font-weight: 500;
+	}
+
+	.product-layout-2 .link-products-nav > a, .product-layout-2 .link-products-nav > span{
+		height: 4.3rem;
+	}
+
+	.product-layout-2 .link-products-nav > a i, .product-layout-2 .link-products-nav > span i {
+		line-height: 4.3rem;
+	}
+}
+
+.product-layout-2 .product-prices div.current-price > span.product-discount .regular-price {
+    font-size: 2.4rem;
+}
+
+.product-layout-2 .product-prices div.current-price > span[itemprop] {
+    font-size: 3rem;
+}
+
+.product-layout-2 .product-prices {
+    display: inline-block;
+    width: auto;
+}
+
+
+.product-layout-2 .block-reassurance ul li .block-reassurance-item {
+	border-bottom: none;
+	padding: 10px 0;
+}
+
+.product-layout-2 .block-reassurance {
+	margin-top: 0;
+}
+
+.product-layout-2 .block-reassurance ul {
+    margin-bottom: 15px;
+}
+
+.product-layout-2 .product-description-short-detail {
+    border-top: 1px solid #e9e7e7;
+    padding-top: 30px;
+    margin-top: 15px;
+}
+
+.product-layout-2 .product-variants > .product-variants-item {
+    display: inline-block;
+    padding: 0 8px;
+    border: none;
+    margin-bottom: 18px;
+	vertical-align: middle;
+}
+
+.product-layout-2 #add-to-cart-or-refresh .product-variants {
+    margin: 0 -10px;
+    font-size: 0;
+}
+
+.product-layout-2 .product-actions .control-label {
+    min-width: auto;
+}
+
+.product-layout-2 .social-sharing {
+    float: right;
+    margin-top: 6px;
+	margin-bottom: 5px;
+}
