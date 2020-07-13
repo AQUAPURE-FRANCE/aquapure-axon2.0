@@ -95,11 +95,6 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
         return parent::hookActionAdminControllerSetMedia();
     }
 
-    public static function renderAccessoriesBlock($id_products, $is_product_page = true)
-    {
-        //return dump((new HsMultiAccessoriesPro())->renderBlockAccessories($id_products, $is_product_page));
-    }
-
     /**
      * Register neccessary hooks.
      *
@@ -160,7 +155,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
     {
         $id_groups = HsAccessoriesGroupAbstract::getIdGroups($this->context->language->id, true);
 
-        if ($this->context->controller instanceof IndexControllerCore) {
+        if ($this->context->controller instanceof IndexControllerCore || $this->context->cookie->__get('quickview')) {
             $id_product = $this->context->cookie->__get('id_product');
 
             if (empty($id_groups) || empty($id_product) || !HsAccessoriesGroupAbstract::haveAccessories(array($id_product), (int) $this->context->language->id)) {
@@ -204,7 +199,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
             'msg_empty_form' => $this->i18n['cannot_submit_a_empty_form'],
             'utilize_block_cart_ajax' => (int) $this->isEnableBlockCartAjax(),
             'order_url' => Configuration::get('PS_ORDER_PROCESS_TYPE') == 1 ? $link->getPageLink('order-opc') : $link->getPageLink('order'),
-            'buy_main_accessory_together' => Tools::jsonEncode($setting_buy_together[$id_product]),
+            'buy_main_accessory_together' => json_encode($setting_buy_together[$id_product]),
             'display_style' => Configuration::get('HSMA_DISPLAY_STYLE'),
             'is_show_icon_out_of_stock' => (int) Configuration::get('HSMA_SHOW_ICON_OUT_OF_STOCK'),
             'is_enabling_option_buy_to_gether' => (bool) Configuration::get('HSMA_BUY_ACCESSORY_MAIN_TOGETHER'),
@@ -302,8 +297,8 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
             'show_combination' => Configuration::get('HSMA_SHOW_COMBINATION'),
             'sync_accessory_quantity' => (int) $this->getOptionAcessoryQuantitySetting(),
             'accessory_groups' => HsAccessoriesGroupAbstract::getGroups($this->context->language->id, true),
-            'accessories_table_price' => Tools::jsonEncode($accessories_table_price),
-            'js_translate_text' => Tools::jsonEncode($this->getJsTranslateText()),
+            'accessories_table_price' => json_encode($accessories_table_price),
+            'js_translate_text' => json_encode($this->getJsTranslateText()),
             'random_main_product_id' => $random_main_product_id,
             'sub_total' => $this->i18n['sub_total'],
             'accessories_groups' => $accessories_groups,
@@ -316,6 +311,8 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
             'id_products_buy_together' => $id_products_buy_together,
             'path_theme' => $this->isPrestashop17() ? '17/' : '',
         ));
+
+        //return dump(json_encode($accessories_table_price));
 
         return $this->display($this->name . '.php', 'multi_accessories.tpl');
     }
@@ -352,6 +349,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
      */
     public function hookDisplayMultiAccessoriesProductHome($params)
     {
+        $this->context->cookie->__set('quickview', (bool) $params['quickview']);
         $this->context->cookie->__set('id_product', (int) $params['product']['id_product']);
         return $this->hookDisplayRightColumnProduct($params);
     }
