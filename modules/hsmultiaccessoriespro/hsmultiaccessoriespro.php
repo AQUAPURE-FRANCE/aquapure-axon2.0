@@ -155,7 +155,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
     {
         $id_groups = HsAccessoriesGroupAbstract::getIdGroups($this->context->language->id, true);
 
-        if ($this->context->controller instanceof IndexControllerCore) {
+        if ($this->context->controller instanceof IndexControllerCore || $this->context->cookie->__get('quickview')) {
             $id_product = $this->context->cookie->__get('id_product');
 
             if (empty($id_groups) || empty($id_product) || !HsAccessoriesGroupAbstract::haveAccessories(array($id_product), (int) $this->context->language->id)) {
@@ -349,6 +349,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
      */
     public function hookDisplayMultiAccessoriesProductHome($params)
     {
+        $this->context->cookie->__set('quickview', (bool) $params['quickview']);
         $this->context->cookie->__set('id_product', (int) $params['product']['id_product']);
         return $this->hookDisplayRightColumnProduct($params);
     }

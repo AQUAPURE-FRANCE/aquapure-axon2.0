@@ -22,7 +22,9 @@
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="quickview-modal-{$product.id}-{$product.id_product_attribute}" class="modal quickview" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="quickview-modal-{$product.id}-{$product.id_product_attribute}" class="modal quickview"
+     tabindex="-1" role="dialog" aria-hidden="true">
+
   <div id="product" class="modal-dialog" role="document">
    <div class="modal-content">
      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -58,7 +60,8 @@
 					<input type="hidden" name="token" value="{$static_token}">
 					<input type="hidden" name="id_product" value="{$product.id}" id="product_page_product_id">
 					<input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">
-					{block name='product_variants'}
+                      <input type="hidden" id="render-buy-together-quickview" value="{HsMultiAccessoriesPro::renderBuyTogether($product.id)}">
+                      {block name='product_variants'}
 					  {include file='catalog/_partials/product-variants.tpl'}
 					{/block}
 					{block name='product_add_to_cart'}
@@ -69,7 +72,7 @@
 			  </div>
 			{/block}
 			{hook h='displayProductAdditionalInfo' product=$product}
-			{hook h='displayMultiAccessoriesProduct' mod='hsmultiaccessoriespro'}
+			{hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product quickview=true}
 		</div>	
         </div>
       </div>
