@@ -8,12 +8,13 @@
  *********************************************************************************/
 
 (function () {
-	const NrtHomepageAjax = {
+	const NrtMainProductsHome = {
 		DOM: {
 			commonGrandParentSelector: '',
 			activeTabId: '',
 			dataToggleAttr: '[data-toggle="tab"]',
 			hsmaScriptDisplayHeaderId: 'hsma-display-header',
+			quickviewBuyTogetherId: 'render-buy-together-quickview',
 			selectors: {
 				currentProductScriptId: '#current-script',
 				productSlider: '#product',
@@ -56,12 +57,7 @@
 		},
 
 		// Remove underscore
-		removeUnderscore(element, attr = null) {
-			if (null !== attr) {
-				element.setAttribute(attr.replace(/_/, ''), element.getAttribute(attr));
-				this.removeAttribute(element, attr);
-			}
-
+		removeUnderscore(element) {
 			let attributes = (Object.values(element.attributes)).filter(
 				attr => attr.name !== 'type' || attr.name !== 'style' || attr.name !== 'width' || attr.name !== 'height');
 			attributes.forEach(_attr => {
@@ -160,10 +156,16 @@
 		},
 
 		// Update script hsma display header
-		updateScriptDisplayHeader() {
-			let scriptDisplayHeader = document.getElementById(this.DOM.hsmaScriptDisplayHeaderId);
-			let displayBuyTogether = document.querySelector(this.DOM.selectors.formRenderByTogetherId).value;
-			let textCurrentScript = scriptDisplayHeader.textContent;
+		updateScriptDisplayHeader(buyTogetherOption = '') {
+			let scriptDisplayHeader = document.getElementById(this.DOM.hsmaScriptDisplayHeaderId); // script element
+			let textCurrentScript = scriptDisplayHeader.textContent; // text
+			let displayBuyTogether;
+
+			if (buyTogetherOption !== '') {
+				displayBuyTogether = buyTogetherOption;
+			} else {
+				displayBuyTogether = document.querySelector(this.DOM.selectors.formRenderByTogetherId).value; // value
+			}
 			scriptDisplayHeader.textContent = textCurrentScript.replace(new RegExp(/{(.*)}/), displayBuyTogether);
 		},
 
@@ -202,21 +204,67 @@
 			}
 		},
 	};
-	NrtHomepageAjax.init();
+	NrtMainProductsHome.init();
+
+	// Call update accessories on click
 	document.addEventListener('click', Event => {
 		if (Event.target.hasAttribute('href') && Event.target.href.match(/#content-/) &&
 			Event.target.classList.contains('active')) {
-			NrtHomepageAjax.updateAccessories(Event);
+			NrtMainProductsHome.updateAccessories(Event);
 		}
 	});
-	document.addEventListener('DOMContentLoaded', Event => NrtHomepageAjax.updateAccessories());
 
+	// Call update accessories on document loaded
+	document.addEventListener('DOMContentLoaded', Event => NrtMainProductsHome.updateAccessories());
+
+	// Add underscore to product of active tab if click in quickview
 	document.querySelectorAll('.button-action.quick-view').forEach(qv => {
-		let ids;
+		let selectors;
+
 		qv.addEventListener('click', Event => {
-			let sectionProduct = document.querySelector('#product');
-			ids = [sectionProduct.id, sectionProduct.querySelector(NrtHomepageAjax.DOM.selectors.hsmaMultiAccessoriesTabId).id];
-			ids.map(id => NrtHomepageAjax.addUnderscore(document.getElementById(id), 'id'));
+			selectors = Object.values(NrtMainProductsHome.DOM.selectors);
+			let activeTab = document.getElementById(NrtMainProductsHome.DOM.activeTabId);
+			for (let s = 0; s < selectors.length; s++) {
+				if (activeTab.querySelectorAll(selectors[s]) !== null) {
+					let elements = activeTab.querySelectorAll(selectors[s]);
+					elements.forEach(el => {
+						Array.from(el.attributes).map(attr => {
+							NrtMainProductsHome.addUnderscore(el, attr.name);
+						});
+					});
+				}
+			}
+
+			$('body').on('show.bs.modal','.quickview',(function() {
+				if (document.querySelector(NrtMainProductsHome.DOM.selectors.hsmaMultiAccessoriesTabId) !== null) {
+					let buyTogether = document.querySelector('#' + NrtMainProductsHome.DOM.quickviewBuyTogetherId);
+					NrtMainProductsHome.updateScriptDisplayHeader(buyTogether.value);
+					priceTable = new PriceTable(getCurrentProductOnHomepage('product'));
+					priceTable.onLoad();
+				}
+			}));
 		});
+	});
+
+
+	// Remove underscore from product of active tab if close quickview
+	document.addEventListener('click', Event => {
+		const element = Event.target;
+		if (element.classList.contains('quickview') && element.hasAttribute('role') ||
+			element.parentElement.classList.contains('close') && element.getAttribute('aria-hidden') === 'true'
+		) {
+			let activeTab = document.getElementById(NrtMainProductsHome.DOM.activeTabId);
+			let _selectors = Object.values(NrtMainProductsHome.DOM._selectors);
+			for (let s = 0; s < _selectors.length; s++) {
+				if (activeTab.querySelectorAll(_selectors[s]) !== null) {
+					let elements = activeTab.querySelectorAll(_selectors[s]);
+					elements.forEach(el => {
+						if (el !== null) {
+							NrtMainProductsHome.removeUnderscore(el);
+						}
+					});
+				}
+			}
+		}
 	});
 }());

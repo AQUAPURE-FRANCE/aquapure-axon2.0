@@ -133,6 +133,7 @@
 											</div>	
 											{* {hook h='displayProductAdditionalInfo' product=$product}
 											{hook h='displayProductTags'} *}
+
 										</div>
 									</div>
 								</div>
@@ -141,7 +142,7 @@
 					</div>
 					<div id="right-column" class="col-xs-12 col-lg-3">
 
-						{hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product}
+						{hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product quickview=false}
 
 						<div id="right-content">
 							{block name="right_content"}
