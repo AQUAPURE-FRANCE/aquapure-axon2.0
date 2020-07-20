@@ -154,17 +154,17 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
     protected function isHookedInCurrentPage()
     {
         $id_groups = HsAccessoriesGroupAbstract::getIdGroups($this->context->language->id, true);
-
+        
         if ($this->context->controller instanceof IndexControllerCore || $this->context->cookie->__get('quickview')) {
             $id_product = $this->context->cookie->__get('id_product');
 
             if (empty($id_groups) || empty($id_product) || !HsAccessoriesGroupAbstract::haveAccessories(array($id_product), (int) $this->context->language->id)) {
                 return false;
             }
-            return true;
+            return true;            
         }
 
-        if ($this->context->controller instanceof ProductController) {
+        if ($this->context->controller instanceof ProductControllerCore) {
             $id_product = Tools::getValue('id_product');
             if (empty($id_groups) || empty($id_product) || !HsAccessoriesGroupAbstract::haveAccessories(array($id_product), (int) $this->context->language->id)) {
                 return false;

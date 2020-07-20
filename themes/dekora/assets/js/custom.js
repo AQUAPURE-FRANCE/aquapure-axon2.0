@@ -90,6 +90,7 @@
 					if (!this.isActive(element) && element.hasAttribute('aria-controls')) {
 						tabs.push(document.getElementById(element.getAttribute('aria-controls')));
 					} else {
+// 						console.log(document.getElementById(element.getAttribute('aria-controls')));
 						this.processActiveTab(document.getElementById(element.getAttribute('aria-controls')));
 					}
 				});
@@ -115,7 +116,7 @@
 				for (let j = 0; j < selectors.length; j++) {
 					if (tabs[i].querySelectorAll(selectors[j]).length > 0) {
 						let children = tabs[i].querySelectorAll(selectors[j]);
-						children.forEach(child => this.setAttributes(child));
+						setTimeout(() => children.forEach(child => this.setAttributes(child)), 700) ;
 					}
 				}
 			}
@@ -167,6 +168,7 @@
 				displayBuyTogether = document.querySelector(this.DOM.selectors.formRenderByTogetherId).value; // value
 			}
 			scriptDisplayHeader.textContent = textCurrentScript.replace(new RegExp(/{(.*)}/), displayBuyTogether);
+			
 		},
 
 		// Return whether page has 'add-to-cart-or-refresh' ids conflict, that is, there are more than one
@@ -192,15 +194,35 @@
 				document.addEventListener('DOMContentLoaded', () => {
 					this.trigger();
 					document.addEventListener('click', Event => {
-						if (Event.target.hasAttribute('href') && Event.target.href.match(/#content-/) &&
-							Event.target.classList.contains('active')) {
+						let element;
+						if (Event.target.nodeName !== 'A'){
+							if (Event.target.closest('a')){
+								element = Event.target.closest('a');
+							} else if (Event.target.children.length > 0) {
+								let children = Event.target.children
+								for (let i = 0; i<children.length; i++) {
+									if (children[i].nodeName === 'A') {
+										element = children[i]
+									}
+									else {return false}
+								}
+							} else {return false}
+						
+						} else {
+							element = Event.target
+						}					
+						if (element.href.match(/#content-/) &&
+							element.classList.contains('active')) {
 							this.clientTrigger();
+						}
+						else if (!element.href.match(/#content-/)) {
+							return false
 						}
 					});
 				});
 			} else {
 				console.log('No id conflicts in this page!');
-				return false;
+				return false;				
 			}
 		},
 	};

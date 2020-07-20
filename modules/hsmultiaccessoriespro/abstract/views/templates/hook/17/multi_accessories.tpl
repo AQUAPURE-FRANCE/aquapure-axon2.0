@@ -59,6 +59,7 @@
                     {if $group.show_name}
                         {$group.name|escape:'html':'UTF-8'}
                     {/if}
+                    <span class="group_total"></span>
                     </h4>
                     <div class="content_group" style="display: {$is_show_group|escape:'htmlall':'UTF-8'}">
                     {if $group.display_style == HsMaDisplayStyle::DROPDOWN}{*Display style = Dropdown*}
