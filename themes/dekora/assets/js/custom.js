@@ -8,6 +8,8 @@
  *********************************************************************************/
 
 (function () {
+	'use strict';
+
 	const NrtMainProductsHome = {
 		DOM: {
 			commonGrandParentSelector: '',
@@ -51,8 +53,10 @@
 		// Add underscore
 		addUnderscore(element, attr) {
 			if (!this.hasUnderscore(attr)) {
-				element.setAttribute('_' + attr, element.getAttribute(attr));
+				let attrValue = element.getAttribute(attr);
 				this.removeAttribute(element, attr);
+				element.setAttribute('_' + attr, attrValue);
+
 			}
 		},
 
@@ -87,10 +91,13 @@
 			let tabs = [];
 			document.querySelectorAll(this.DOM.commonGrandParentSelector + ' ' + this.DOM.dataToggleAttr)
 				.forEach(element => {
+					let tab;
 					if (!this.isActive(element) && element.hasAttribute('aria-controls')) {
-						tabs.push(document.getElementById(element.getAttribute('aria-controls')));
+						tab = document.getElementById(element.getAttribute('aria-controls'));
+						tabs.push(tab);
 					} else {
-						this.processActiveTab(document.getElementById(element.getAttribute('aria-controls')));
+						tab = document.getElementById(element.getAttribute('aria-controls'));
+						this.processActiveTab(tab);
 					}
 				});
 			return tabs;
@@ -115,7 +122,14 @@
 				for (let j = 0; j < selectors.length; j++) {
 					if (tabs[i].querySelectorAll(selectors[j]).length > 0) {
 						let children = tabs[i].querySelectorAll(selectors[j]);
-						children.forEach(child => this.setAttributes(child));
+						children.forEach(child => {
+							if (child.nodeName === 'SCRIPT') {
+								this.setAttributes(child);
+							} else {
+								setTimeout(() => this.setAttributes(child), 700);
+							}
+
+						})
 					}
 				}
 			}
@@ -179,10 +193,8 @@
 		},
 
 		updateAccessories() {
-			setTimeout(() => {
-				priceTable = new PriceTable(getCurrentProductOnHomepage());
-				priceTable.onLoad();
-			}, 100);
+			let priceTable = new PriceTable(getCurrentProductOnHomepage());
+			priceTable.onLoad();
 		},
 
 		clientTrigger() { this.trigger(); },
@@ -192,11 +204,17 @@
 				document.addEventListener('DOMContentLoaded', () => {
 					this.trigger();
 					document.addEventListener('click', Event => {
-						if (Event.target.hasAttribute('href') && Event.target.href.match(/#content-/) &&
-							Event.target.classList.contains('active')) {
+						let element = Event.target;
+						if (element.attributes
+							&& element.hasAttribute('href')
+							&& element.href.match(/#content-/)
+						) {
 							this.clientTrigger();
+							NrtMainProductsHome.updateAccessories();
+						} else {
+							return false;
 						}
-					});
+					}, false);
 				});
 			} else {
 				console.log('No id conflicts in this page!');
@@ -205,17 +223,6 @@
 		},
 	};
 	NrtMainProductsHome.init();
-
-	// Call update accessories on click
-	document.addEventListener('click', Event => {
-		if (Event.target.hasAttribute('href') && Event.target.href.match(/#content-/) &&
-			Event.target.classList.contains('active')) {
-			NrtMainProductsHome.updateAccessories(Event);
-		}
-	});
-
-	// Call update accessories on document loaded
-	document.addEventListener('DOMContentLoaded', Event => NrtMainProductsHome.updateAccessories());
 
 	// Add underscore to product of active tab if click in quickview
 	document.querySelectorAll('.button-action.quick-view').forEach(qv => {
@@ -239,10 +246,11 @@
 				if (document.querySelector(NrtMainProductsHome.DOM.selectors.hsmaMultiAccessoriesTabId) !== null) {
 					let buyTogether = document.querySelector('#' + NrtMainProductsHome.DOM.quickviewBuyTogetherId);
 					NrtMainProductsHome.updateScriptDisplayHeader(buyTogether.value);
-					priceTable = new PriceTable(getCurrentProductOnHomepage('product'));
+					let priceTable = new PriceTable(getCurrentProductOnHomepage('product'));
 					priceTable.onLoad();
 				}
 			}));
+			return false;
 		});
 	});
 
