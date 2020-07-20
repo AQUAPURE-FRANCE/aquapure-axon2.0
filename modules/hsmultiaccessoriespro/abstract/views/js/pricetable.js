@@ -1000,7 +1000,6 @@ var PriceTable = function (options)
         */
        this._onClickBlockGroup = function (element)
        {
-           
            if ($(element).hasClass(PriceTable.instance._selectors.iconCollapse)){
                $(element).removeClass(PriceTable.instance._selectors.iconCollapse);
                $(element).addClass(PriceTable.instance._selectors.iconExpand);

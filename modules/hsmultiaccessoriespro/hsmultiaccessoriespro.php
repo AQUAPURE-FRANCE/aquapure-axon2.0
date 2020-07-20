@@ -158,7 +158,7 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
         if ($this->context->controller instanceof IndexControllerCore || $this->context->cookie->__get('quickview')) {
             $id_product = $this->context->cookie->__get('id_product');
 
-            if (empty($id_groups) || empty($id_product) || !HsAccessoriesGroupAbstract::haveAccessories(array($id_product), (int) $this->context->language->id)) {
+            if (empty($id_groups) || empty($id_product)) {
                 return false;
             }
             return true;
@@ -311,9 +311,6 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
             'id_products_buy_together' => $id_products_buy_together,
             'path_theme' => $this->isPrestashop17() ? '17/' : '',
         ));
-
-        //return dump(json_encode($accessories_table_price));
-
         return $this->display($this->name . '.php', 'multi_accessories.tpl');
     }
 
