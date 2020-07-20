@@ -54,7 +54,7 @@
                     {/if}
                     <h4>
                     {if $group.collapse_expand != HsMaDisplayStyle::DISPLAY_GROUPS_NONE}
-                    <i class="material-icons {$class_collapse|escape:'htmlall':'UTF-8'} {$class_expand|escape:'htmlall':'UTF-8'}">{if $icon_utf8 == 1}&#xE145;{else}&#xE15B;{/if}</i>
+                    <i class="material-icons{$class_collapse|escape:'htmlall':'UTF-8'} {$class_expand|escape:'htmlall':'UTF-8'}">{if $icon_utf8 == 1}&#xE145;{else}&#xE15B;{/if}</i>
                     {/if}
                     {if $group.show_name}
                         {$group.name|escape:'html':'UTF-8'}
