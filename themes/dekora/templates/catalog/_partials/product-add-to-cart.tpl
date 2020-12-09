@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			<div class="add">
-			  <button class="add-to-cart title_font" data-button-action="add-to-cart" type="submit"{if !$product.add_to_cart_url} disabled{/if}>            
+			  <button class="add-to-cart title_font" data-button-action="add-to-cart" type="submit"{if !$product.add_to_cart_url} disabled{/if}>
 				<i class="shopping-cart  fto fto-bag-2"></i>
 				{l s='Add to cart' d='Shop.Theme.Actions'}
 			  </button>

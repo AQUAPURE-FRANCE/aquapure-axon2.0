@@ -14,7 +14,8 @@
 		DOM: {
 			commonGrandParentSelector: '',
 			activeTabId: '',
-			dataToggleAttr: '[data-toggle="tab"]',
+			dataToggleAttr: '[data-toggle="tab"]', 																		// For tabs
+			sliderItems: '.owl-item', 																					// For slider items
 			hsmaScriptDisplayHeaderId: 'hsma-display-header',
 			quickviewBuyTogetherId: 'render-buy-together-quickview',
 			selectors: {
@@ -85,22 +86,50 @@
 			});
 		},
 
+		isSlider() {
+			return this.DOM.commonGrandParentSelector.match(new RegExp("owl")) !== null;
+		},
+
 		// Get all inactive tabs
-		getTabs() {
+		getItems() {
 			// Develop strategy if li does not exist
+			let items = [];
+			if (this.isSlider()) {
+				items = this.getSlides();
+			} else {
+				items = this.getTabs();
+			}
+			return items;
+		},
+
+		getTabs() {
+			const nodeList = document.querySelectorAll(`.hsmulti-products ${this.DOM.commonGrandParentSelector} ${this.DOM.dataToggleAttr}`);
 			let tabs = [];
-			document.querySelectorAll(this.DOM.commonGrandParentSelector + ' ' + this.DOM.dataToggleAttr)
-				.forEach(element => {
-					let tab;
-					if (!this.isActive(element) && element.hasAttribute('aria-controls')) {
-						tab = document.getElementById(element.getAttribute('aria-controls'));
-						tabs.push(tab);
-					} else {
-						tab = document.getElementById(element.getAttribute('aria-controls'));
-						this.processActiveTab(tab);
-					}
-				});
+			nodeList.forEach(element => {
+				let tab;
+				if (!this.isActive(element) && element.hasAttribute('aria-controls')) {
+					tab = document.getElementById(element.getAttribute('aria-controls'));
+					tabs.push(tab);
+				} else {
+					tab = document.getElementById(element.getAttribute('aria-controls'));
+					this.processActiveTab(tab);
+				}
+			});
 			return tabs;
+		},
+
+		getSlides() {
+			const nodeList = document.querySelectorAll(`.hsmulti-products ${this.DOM.commonGrandParentSelector} ${this.DOM.sliderItems}`);
+			let slides = [];
+			nodeList.forEach(slide => {
+				if (!slide.classList.contains("active")) {
+					slides.push(slide);
+				} else {
+					this.processActiveSlide(slide);
+				}
+			});
+
+			return slides;
 		},
 
 		// Get active element
@@ -115,20 +144,19 @@
 		},
 
 		getElements() {
-			let tabs = this.getTabs();
+			let elements = this.getItems();
 			let selectors = Object.values(this.DOM.selectors);
 
-			for (let i = 0; i < tabs.length; i++) {
+			for (let i = 0; i < elements.length; i++) {
 				for (let j = 0; j < selectors.length; j++) {
-					if (tabs[i].querySelectorAll(selectors[j]).length > 0) {
-						let children = tabs[i].querySelectorAll(selectors[j]);
+					if (elements[i].querySelectorAll(selectors[j]).length > 0) {
+						let children = elements[i].querySelectorAll(selectors[j]);
 						children.forEach(child => {
 							if (child.nodeName === 'SCRIPT') {
 								this.setAttributes(child);
 							} else {
 								setTimeout(() => this.setAttributes(child), 700);
 							}
-
 						})
 					}
 				}
@@ -138,6 +166,17 @@
 		// Process active tab
 		processActiveTab(element) {
 			this.DOM.activeTabId = element.id;
+			let _selectors = this.DOM._selectors;
+			for (let j = 0; j < _selectors.length; j++) {
+				if (element.querySelectorAll(_selectors[j]).length > 0) {
+					let children = element.querySelectorAll(_selectors[j]);
+					children.forEach(child => this.removeUnderscore(child));
+				}
+			}
+		},
+
+		// Process active tab
+		processActiveSlide(element) {
 			let _selectors = this.DOM._selectors;
 			for (let j = 0; j < _selectors.length; j++) {
 				if (element.querySelectorAll(_selectors[j]).length > 0) {
@@ -159,13 +198,30 @@
 					if (parent.querySelectorAll(this.DOM.selectors.formAddToCartOrRefreshId).length === children.length) {
 						parentFound = true;
 						// Get grand parent if common parent is found
-						this.DOM.commonGrandParentSelector = '#' + parent.parentElement.id || '.' +
-							parent.parentElement.className.replace(new RegExp(/\s+/, 'g'), '.');
+						const grandParentId = parent.parentElement.hasAttribute("id") ? parent.parentElement.id : null;
+						const grandParentClass = parent.parentElement.className;
+						this.DOM.commonGrandParentSelector = grandParentId !== null
+							? `#${grandParentId}`
+							: `.${grandParentClass.replace(new RegExp(/\\s+/, 'g'), '.')}`;
 						break;
 					} else {
 						parent = parent.parentElement;
 					}
 				}
+			}
+		},
+
+		isChoseItemButton(element) {
+			if ((element.attributes
+				&& element.hasAttribute('href')
+				&& element.href.match(/#content-/)) ||
+				(element.parentElement.nodeName === "BUTTON" &&
+				element.parentElement.classList.contains("active"))
+			) {
+				this.clientTrigger();
+				NrtMainProductsHome.updateAccessories();
+			} else {
+				return false;
 			}
 		},
 
@@ -205,15 +261,7 @@
 					this.trigger();
 					document.addEventListener('click', Event => {
 						let element = Event.target;
-						if (element.attributes
-							&& element.hasAttribute('href')
-							&& element.href.match(/#content-/)
-						) {
-							this.clientTrigger();
-							NrtMainProductsHome.updateAccessories();
-						} else {
-							return false;
-						}
+						this.isChoseItemButton(element);
 					}, false);
 				});
 			} else {

@@ -287,6 +287,31 @@ class HsMultiAccessoriesPro extends HsMultiAccessoriesAbstract
 
         $setting_buy_together = HsMaProductSetting::getBuyTogetherCurrentValue($id_products[0]);
 
+//        return dump(array(
+//            'accessory_configuration_keys' => Configuration::getMultiple(array_keys($this->configuration_keys)),
+//            'accessory_block_title' => Configuration::get('HSMA_TITLE', $this->context->language->id),
+//            'accessory_image_type' => Configuration::get('HSMA_IMAGE_TYPE'),
+//            'change_main_price' => Configuration::get('HSMA_CHANGE_MAIN_PRICE'),
+//            'image_size_fancybox' => Configuration::get('HSMA_IMAGE_SIZE_IN_FANCYBOX'),
+//            'show_table_price' => Configuration::get('HSMA_SHOW_PRICE_TABLE'),
+//            'show_combination' => Configuration::get('HSMA_SHOW_COMBINATION'),
+//            'sync_accessory_quantity' => (int) $this->getOptionAcessoryQuantitySetting(),
+//            'accessory_groups' => HsAccessoriesGroupAbstract::getGroups($this->context->language->id, true),
+//            'accessories_table_price' => json_encode($accessories_table_price),
+//            'js_translate_text' => json_encode($this->getJsTranslateText()),
+//            'random_main_product_id' => $random_main_product_id,
+//            'sub_total' => $this->i18n['sub_total'],
+//            'accessories_groups' => $accessories_groups,
+//            'static_token' => Tools::getToken(false),
+//            'is_enabling_cart_ajax' => (int) $this->isEnableBlockCartAjax(),
+//            'main_product_minimal_quantity' => $is_product_page ? $product->minimal_quantity : 1,
+//            'buy_main_accessory_together_group' => $setting_buy_together[$id_products[0]],
+//            'is_product_page' => $is_product_page,
+//            'isPrestashop17' => $this->isPrestashop17(),
+//            'id_products_buy_together' => $id_products_buy_together,
+//            'path_theme' => $this->isPrestashop17() ? '17/' : '',
+//        ));
+
         $this->context->smarty->assign(array(
             'accessory_configuration_keys' => Configuration::getMultiple(array_keys($this->configuration_keys)),
             'accessory_block_title' => Configuration::get('HSMA_TITLE', $this->context->language->id),
