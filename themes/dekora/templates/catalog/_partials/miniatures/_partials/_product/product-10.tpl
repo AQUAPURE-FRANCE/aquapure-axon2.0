@@ -36,7 +36,7 @@
 							<div class="row row-product" data-url-home="{$urls.base_url}">
 								<div class="col-xs-12 col-lg-6 col-product-image">
 									{block name='page_content_container'}
-										{block name='page_content'}		
+										{block name='page_content'}
 											<div class="js-wrapper-scroll no_grid">	  
 												{block name='product_cover_tumbnails'}
 													{include file='catalog/_partials/product-cover-thumbnails.tpl'}
