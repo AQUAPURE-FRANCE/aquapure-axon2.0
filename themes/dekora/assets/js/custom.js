@@ -12,7 +12,7 @@
 
 	const NrtMainProductsHome = {
 		DOM: {
-			commonGrandParentSelector: '',
+			commonGrandParentSelector: '.products',
 			activeTabId: '',
 			dataToggleAttr: '[data-toggle="tab"]', 																		// For tabs
 			sliderItems: '.owl-item', 																					// For slider items
