@@ -85,3 +85,10 @@ This module will allow you to extend hsmulti to Homepage
 ### THEMES
 1. Choose a customizable product layout in `/themes/dekora/templates/catalog/_partials/miniatures/_partials/_product/` and add script of one of the default product layouts in `/themes/dekora/templates/catalog/_product`
 2. Insert hook call ` {hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product quickview=false}` where you want in choosen customizable product layout
+3. Comment following scripts if in customizable product layout:
+* `{hook h='displayProductsLinkNav' product=$product category=$category}`
+* `<input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">`
+* `{block name='product_pack'}...{/block}`
+* `{hook h='displayProductAdditionalInfo' product=$product}`
+* `{hook h="displayRightColumnProduct"}`
+* `{block name='product_footer_container'}...{/block}`
