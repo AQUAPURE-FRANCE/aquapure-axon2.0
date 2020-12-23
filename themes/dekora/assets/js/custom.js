@@ -12,7 +12,7 @@
 
 	const NrtMainProductsHome = {
 		DOM: {
-			commonGrandParentSelector: '.products',
+			commonGrandParentSelector: '',
 			activeTabId: '',
 			dataToggleAttr: '[data-toggle="tab"]', 																		// For tabs
 			sliderItems: '.owl-item', 																					// For slider items
@@ -119,7 +119,7 @@
 		},
 
 		getSlides() {
-			const nodeList = document.querySelectorAll(`.hsmulti-products ${this.DOM.commonGrandParentSelector} ${this.DOM.sliderItems}`);
+			const nodeList = document.querySelectorAll(`${this.DOM.commonGrandParentSelector + " " + this.DOM.sliderItems}`);
 			let slides = [];
 			nodeList.forEach(slide => {
 				if (!slide.classList.contains("active")) {
@@ -200,9 +200,11 @@
 						// Get grand parent if common parent is found
 						const grandParentId = parent.parentElement.hasAttribute("id") ? parent.parentElement.id : null;
 						const grandParentClass = parent.parentElement.className;
+						const partialSelector = `#${parent.parentElement.closest('[id*="content-home-"]').id}`;
+
 						this.DOM.commonGrandParentSelector = grandParentId !== null
-							? `#${grandParentId}`
-							: `.${grandParentClass.replace(new RegExp(/\\s+/, 'g'), '.')}`;
+							? `${partialSelector} #${grandParentId}`
+							: `${partialSelector} .${grandParentClass.replace(new RegExp(/\\s+/, 'g'), '.')}`;
 						break;
 					} else {
 						parent = parent.parentElement;
@@ -216,7 +218,7 @@
 				&& element.hasAttribute('href')
 				&& element.href.match(/#content-/)) ||
 				(element.parentElement.nodeName === "BUTTON" &&
-				element.parentElement.classList.contains("active"))
+					element.parentElement.classList.contains("active"))
 			) {
 				this.clientTrigger();
 				NrtMainProductsHome.updateAccessories();
@@ -301,7 +303,6 @@
 			return false;
 		});
 	});
-
 
 	// Remove underscore from product of active tab if close quickview
 	document.addEventListener('click', Event => {
