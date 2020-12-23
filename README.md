@@ -91,4 +91,5 @@ This module will allow you to extend hsmulti to Homepage
 	* `{block name='product_pack'}...{/block}`
 	* `{hook h='displayProductAdditionalInfo' product=$product}`
 	* `{hook h="displayRightColumnProduct"}`
-	* `{block name='product_footer_container'}...{/block}`
+	* `{block name='product_footer_container'}...{/block}`	
+4. Update `{include file='catalog/_partials/product-variants.tpl'}` with `{include file='catalog/_partials/product-variants.tpl' groups=NrtPageBuilder::getAttributesGroups($language.id, $product.id_product)}`
