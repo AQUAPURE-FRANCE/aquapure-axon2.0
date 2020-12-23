@@ -5,14 +5,10 @@ This module will allow you to extend hsmulti to Homepage
 1. Place `hsmultiaccessoriespro` module into `project_root_dir/modules/`
 2. Install it from `Modules|Module Catalog` in Prestashop backoffice
 
-### CUSTOM.JS
-1. [Add script of custom.js](https://github.com/AQUAPURE-FRANCE/aquapure-axon2.0/blob/master/themes/dekora/assets/js/custom.js) to `/themes/dekora/assets/js/custom.js`
-2. Eventually clean cache of browser
-
 ### Module nrtpagebuilder
 1. Add following php scritp to `/modules/nrtpagebuilder/nrtpagebuilder.php`
 ```
-	/**
+    /**
      * Get all available attribute groups.
      *
      * @param int $id_lang Language id
@@ -81,3 +77,11 @@ This module will allow you to extend hsmulti to Homepage
 		return $attributes;
 	}
 ```
+
+### CUSTOM.JS
+1. [Add script of custom.js](https://github.com/AQUAPURE-FRANCE/aquapure-axon2.0/blob/master/themes/dekora/assets/js/custom.js) to `/themes/dekora/assets/js/custom.js`
+2. Eventually clean cache of browser
+
+### THEMES
+1. Choose a customizable product layout in `/themes/dekora/templates/catalog/_partials/miniatures/_partials/_product/` and add script of one of the default product layouts in `/themes/dekora/templates/catalog/_product`
+2. Insert hook call ` {hook h='displayMultiAccessoriesProductHome' mod='hsmultiaccessoriespro' product=$product quickview=false}` where you want in choosen customizable product layout
