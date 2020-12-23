@@ -95,3 +95,4 @@ This module will allow you to extend hsmulti to Homepage
 4. Update `{include file='catalog/_partials/product-variants.tpl'}` with `{include file='catalog/_partials/product-variants.tpl' groups=NrtPageBuilder::getAttributesGroups($language.id, $product.id_product)}`
 5. Add `<input type="hidden" id="render-buy-together" value="{HsMultiAccessoriesPro::renderBuyTogether($product.id)}">` as a first child of `<form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh"></form>` 
 6. Replace `/themes/dekora/templates/catalog/_partials/product-prices.tpl` with [custom product-prices.tpl](/themes/dekora/templates/catalog/_partials/product-prices.tpl)
+7. Replace `/themes/dekora/templates/catalog/_partials/product-add-to-cart.tpl`with [custom product-add-to-cart.tpl](/themes/dekora/templates/catalog/_partials/product-add-to-cart.tpl)
