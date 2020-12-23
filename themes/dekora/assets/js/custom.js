@@ -103,7 +103,7 @@
 		},
 
 		getTabs() {
-			const nodeList = document.querySelectorAll(`.hsmulti-products ${this.DOM.commonGrandParentSelector} ${this.DOM.dataToggleAttr}`);
+			const nodeList = document.querySelectorAll(`${this.DOM.commonGrandParentSelector} ${this.DOM.dataToggleAttr}`);
 			let tabs = [];
 			nodeList.forEach(element => {
 				let tab;
