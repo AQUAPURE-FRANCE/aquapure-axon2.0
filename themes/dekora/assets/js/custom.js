@@ -286,7 +286,7 @@
             selectors = Object.values(NrtMainProductsHome.DOM.selectors);
             let activeElem = NrtMainProductsHome.DOM.activeTabId !== ""
                 ? document.getElementById(NrtMainProductsHome.DOM.activeTabId)
-                : document.querySelector(`#index .products ${NrtMainProductsHome.DOM.activeSlideSelector}`);
+                : document.querySelector(`#index .products.clearfix ${NrtMainProductsHome.DOM.activeSlideSelector}`);
 
             for (let s = 0; s < selectors.length; s++) {
                 if (activeElem.querySelectorAll(selectors[s]) !== null) {
@@ -319,7 +319,7 @@
         ) {
             let activeElem = NrtMainProductsHome.DOM.activeTabId !== ""
                 ? document.getElementById(NrtMainProductsHome.DOM.activeTabId)
-                : document.querySelector(`#index .products ${NrtMainProductsHome.DOM.activeSlideSelector}`);
+                : document.querySelector(`#index .products.clearfix ${NrtMainProductsHome.DOM.activeSlideSelector}`);
             let _selectors = Object.values(NrtMainProductsHome.DOM._selectors);
 
             for (let s = 0; s < _selectors.length; s++) {
