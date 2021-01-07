@@ -96,3 +96,4 @@ This module will allow you to extend hsmulti to Homepage
 5. Add `<input type="hidden" id="render-buy-together" value="{HsMultiAccessoriesPro::renderBuyTogether($product.id)}">` as a first child of `<form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh"></form>` 
 6. Replace `/themes/dekora/templates/catalog/_partials/product-prices.tpl` with [custom product-prices.tpl](/themes/dekora/templates/catalog/_partials/product-prices.tpl)
 7. Replace `/themes/dekora/templates/catalog/_partials/product-add-to-cart.tpl`with [custom product-add-to-cart.tpl](/themes/dekora/templates/catalog/_partials/product-add-to-cart.tpl)
+8. Replace `/themes/dekora/templates/catalog/_partials/quickview.tpl` with [custom quickview.tpl](https://github.com/AQUAPURE-FRANCE/aquapure-axon2.0/blob/master/themes/dekora/templates/catalog/_partials/quickview.tpl)
